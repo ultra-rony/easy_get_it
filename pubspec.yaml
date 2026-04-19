@@ -1,6 +1,6 @@
 name: easy_get_it
-description: "A new Flutter package project."
-version: 0.0.1
+description: A simple and lightweight service locator for managing dependencies in Flutter and Dart applications.
+version: 0.0.2
 repository: https://github.com/ultra-rony/easy_get_it
 homepage: https://github.com/ultra-rony/easy_get_it
 
@@ -19,4 +19,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
 
-flutter:
+screenshots:
+  - description: The logo of the easy_get_it package.
+    path: screenshots/logo.png

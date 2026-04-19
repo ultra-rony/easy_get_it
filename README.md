@@ -1,39 +1,176 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# EasyGetIt
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A lightweight and minimal service locator for Dart/Flutter, inspired by `GetIt`. It provides a simple way to register and resolve dependencies without unnecessary complexity.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+---
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## ✨ Features
 
-## Features
+* 🔹 Singleton support (pre-created instance)
+* 🔹 Lazy Singleton (created on first request)
+* 🔹 Factory (new instance every time)
+* 🔹 No external dependencies
+* 🔹 Simple and intuitive API
+* 🔹 Utilities for checking, unregistering, and resetting dependencies
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+---
 
-## Getting started
+## 📦 Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add to your `pubspec.yaml`:
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  easy_get_it: ^1.0.0
 ```
 
-## Additional information
+Then run:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```bash
+flutter pub get
+```
+
+---
+
+## 🚀 Quick Start
+
+```dart
+import 'package:easy_get_it/easy_get_it.dart';
+
+void main() {
+  // Register dependencies
+  getIt.registerSingleton<ApiService>(ApiService());
+  getIt.registerLazySingleton<AuthService>(() => AuthService());
+  getIt.registerFactory<UserController>(() => UserController());
+
+  // Resolve dependencies
+  final api = getIt.get<ApiService>();
+  final auth = getIt.get<AuthService>();
+  final controller1 = getIt.get<UserController>();
+  final controller2 = getIt.get<UserController>(); // new instance
+}
+```
+
+---
+
+## 🧠 Registration Types
+
+### 1. Singleton
+
+A single shared instance is used throughout the app.
+
+```dart
+getIt.registerSingleton<MyService>(MyService());
+```
+
+---
+
+### 2. Lazy Singleton
+
+The instance is created only when it is first requested, then cached.
+
+```dart
+getIt.registerLazySingleton<MyService>(() => MyService());
+```
+
+---
+
+### 3. Factory
+
+A new instance is created every time it is requested.
+
+```dart
+getIt.registerFactory<MyService>(() => MyService());
+```
+
+---
+
+## 🔍 Resolving Dependencies
+
+```dart
+final service = getIt.get<MyService>();
+```
+
+If the type is not registered, an exception is thrown:
+
+```text
+Exception: Service of type MyService is not registered
+```
+
+---
+
+## 🛠 Utilities
+
+### Check if registered
+
+```dart
+if (getIt.isRegistered<MyService>()) {
+  // Do something
+}
+```
+
+---
+
+### Unregister a dependency
+
+```dart
+getIt.unregister<MyService>();
+```
+
+---
+
+### Reset all dependencies
+
+```dart
+getIt.reset();
+```
+
+---
+
+## ⚙️ Resolution Order
+
+When calling `get<T>()`, dependencies are resolved in this order:
+
+1. Singleton
+2. Lazy Singleton (then cached as Singleton)
+3. Factory
+
+---
+
+## 🌍 Global Access
+
+EasyGetIt is designed as a global singleton:
+
+```dart
+final EasyGetIt getIt = EasyGetIt._internal();
+```
+
+You can access `getIt` anywhere in your app without additional setup.
+
+---
+
+## ⚠️ Limitations
+
+* No scoped dependencies
+* No async initialization support
+* Not thread-safe (generally fine for Flutter apps)
+
+---
+
+## 💡 When to use
+
+* Small to medium Flutter applications
+* Prototyping and fast development
+* When a full DI framework is unnecessary
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
