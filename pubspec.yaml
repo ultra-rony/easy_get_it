@@ -1,6 +1,6 @@
 name: easy_get_it
 description: A simple and lightweight service locator for managing dependencies in Flutter and Dart applications.
-version: 0.0.5
+version: 0.0.6
 repository: https://github.com/ultra-rony/easy_get_it
 homepage: https://github.com/ultra-rony/easy_get_it
 

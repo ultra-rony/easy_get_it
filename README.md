@@ -1,7 +1,7 @@
 # EasyGetIt
 
 <p align="center">
-    <a href="https://pub.dev/packages/easy_get_it"><img src="https://img.shields.io/badge/pub-v0.0.5-blue" alt="Pub"></a>
+    <a href="https://pub.dev/packages/easy_get_it"><img src="https://img.shields.io/badge/pub-v0.0.6-blue" alt="Pub"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
     <a href="https://pub.dev/packages/easy_get_it/score"><img src="https://img.shields.io/badge/points-160/160-green" alt="Points"></a>
     <a href="https://www.donationalerts.com/r/ultra_rony"><img src="https://img.shields.io/badge/support-donate-yellow" alt="Donate"></a>
