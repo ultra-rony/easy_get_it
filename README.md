@@ -1,6 +1,15 @@
 # EasyGetIt
 
+<p align="center">
+    <a href="https://pub.dev/packages/easy_get_it"><img src="https://img.shields.io/badge/pub-v1.0.4-blue" alt="Pub"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
+    <a href="https://pub.dev/packages/easy_get_it/score"><img src="https://img.shields.io/badge/points-160/160-green" alt="Points"></a>
+    <a href="https://www.donationalerts.com/r/ultra_rony"><img src="https://img.shields.io/badge/support-donate-yellow" alt="Donate"></a>
+</p>
+
 A lightweight and minimal service locator for Dart/Flutter, inspired by `GetIt`. It provides a simple way to register and resolve dependencies without unnecessary complexity.
+
+<a href="https://github.com/ultra-rony/easy_get_it">repository</a>
 
 ---
 
